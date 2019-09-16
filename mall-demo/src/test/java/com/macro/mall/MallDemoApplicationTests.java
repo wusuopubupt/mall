@@ -9,10 +9,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * refer doc: https://spring.io/blog/2016/04/15/testing-improvements-in-spring-boot-1-4
+ *
+ * SpringRunner is the new name for SpringJUnit4ClassRunner
+ * @SpringBootTest is saying “bootstrap with Spring Boot’s support”
+ */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
+
 public class MallDemoApplicationTests {
-	private Logger logger = LoggerFactory.getLogger(MallDemoApplicationTests.class);
+
+	private static final Logger LOG = LoggerFactory.getLogger(MallDemoApplicationTests.class);
+
 	@Test
 	public void contextLoads() {
 	}
@@ -22,10 +31,10 @@ public class MallDemoApplicationTests {
 		ObjectMapper mapper = new ObjectMapper();
 		PmsProduct product = new PmsProduct();
 		product.setId(1L);
-		product.setName("小米手机");
-		product.setBrandName("小米");
-		logger.info(mapper.writeValueAsString(product));
-		logger.error(mapper.writeValueAsString(product));
+		product.setName("RedMi");
+		product.setBrandName("XiaoMi");
+		LOG.info(mapper.writeValueAsString(product));
+		LOG.error(mapper.writeValueAsString(product));
 	}
 
 }
