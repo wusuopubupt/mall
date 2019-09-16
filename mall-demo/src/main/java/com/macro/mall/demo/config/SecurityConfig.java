@@ -21,8 +21,8 @@ import java.util.List;
 /**
  * SpringSecurity的配置
  */
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UmsAdminMapper umsAdminMapper;
